@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Transform camTarget;
-    [SerializeField] bool followTarget = true;
-    [SerializeField] float followSpeed = 0.16f;
-    [SerializeField] Vector3 offSet = Vector3.zero;
-    Vector3 velocity;
+    [SerializeField] private bool followTarget = true;
+    [SerializeField] private bool lookatTarget = false;
+
+    [SerializeField] private Transform camTarget;
+    [SerializeField] private float followSpeed = 0.16f;
+    [SerializeField] private Vector3 offSet = Vector3.zero;
+    private Vector3 velocity;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (followTarget)
         {
@@ -20,6 +22,7 @@ public class CameraFollow : MonoBehaviour
             newPos.y = yPos;
             transform.position = newPos;
         }
-        transform.LookAt(camTarget);
+        if(lookatTarget)
+            transform.LookAt(camTarget);
     }
 }
