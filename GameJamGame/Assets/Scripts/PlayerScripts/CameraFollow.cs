@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Camera cam;
-
     [SerializeField] Transform camTarget;
     [SerializeField] bool followTarget = true;
     [SerializeField] float followSpeed = 0.16f;
@@ -14,7 +12,6 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = GetComponent<Camera>();
         offSet = transform.position;
     }
 

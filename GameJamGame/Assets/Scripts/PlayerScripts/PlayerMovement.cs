@@ -4,55 +4,113 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody rb;
-    [Header("Acceleration")]
-    [SerializeField] private float topSpeed = 20;
-    [SerializeField] private float accelerationRate = 5;
-    [SerializeField] private float decelerationRate = 10;
-    private float acceleration = 0;
-    
-    [Header("Steering")]
-    [SerializeField] private float steerStrength = 5;
+    [SerializeField] private Rigidbody moveSphere;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private Transform carModel;
+    [SerializeField] private Transform carNormal;
 
+    private float speed, currentSpeed;
+    private float rotate, currentRotate;
+
+    [Header("Movement Values")]
+    [SerializeField] private float acceleration = 30f;
+    [SerializeField] private float steering = 80f;
+    [SerializeField] private float gravity = 10f;
+    [SerializeField] private LayerMask layerMask;
+
+
+    [Header("Model Parts")]
+    [SerializeField] private float wheelRotationRate = 2;
+    [SerializeField] private Transform frontWheels;
+    [SerializeField] private Transform backWheels;
 
     [Header("Input Controls")]
-    [SerializeField] private KeyCode accelrateKey = KeyCode.W;
+    [SerializeField] private KeyCode accelerateKey = KeyCode.W;
     [SerializeField] private KeyCode brakeKey = KeyCode.S;
-
-    [SerializeField] LayerMask ground;
-    private bool isGrounded = false;
-    private float rayDis = 1;
     
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, rayDis, ground);
+       // follow collider
+        transform.position = moveSphere.transform.position - offset;
+        float steerInput = Input.GetAxis("Horizontal");
 
-        Debug.Log(rb.velocity.magnitude);
+        if (Input.GetKey(accelerateKey))
+        {
+            speed = acceleration;
+        }
+        if (Input.GetKey(brakeKey)) 
+        {
+            speed = -acceleration;
+        }
+        //Steer
+        if (steerInput != 0 && Mathf.Abs(currentSpeed) > 1)
+        {
+            int dir = steerInput > 0 ? 1 : -1;
+            float amount = Mathf.Abs((steerInput));
+            Steer(dir, amount);
+        }
 
-        // check if player is on ground, and has not reached top speed
-        // since magnitude always returns a positive, we can do this check for both acceleration and deceleration
-        if(isGrounded && rb.velocity.magnitude < topSpeed)
+        currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f); 
+        speed = 0f;
+        currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
+        rotate = 0f;
+
+        if (steerInput != 0)
         {
-            if (Input.GetKey(accelrateKey))
-                acceleration = accelerationRate;
-            else if (Input.GetKey(brakeKey))
-                acceleration = -decelerationRate;
+            frontWheels.localEulerAngles = new Vector3(frontWheels.localEulerAngles.x, (steerInput * 15), frontWheels.localEulerAngles.z);
         }
-        else
+        // Rotate wheels based on car speed
+        float rotationAmount = moveSphere.velocity.magnitude * wheelRotationRate * Time.deltaTime;
+        float velocityDirection = Vector3.Dot(moveSphere.velocity, -carModel.forward);
+
+        if (velocityDirection > 0)
         {
-            acceleration = 0;
+            // Moving forward
+            frontWheels.Rotate(-Vector3.right, rotationAmount);
+            backWheels.Rotate(-Vector3.right, rotationAmount);
         }
+        else if (velocityDirection < 0)
+        {
+            // Moving backward
+            frontWheels.Rotate(Vector3.right, rotationAmount);
+            backWheels.Rotate(Vector3.right, rotationAmount);
+        }
+
+    
+
+
     }
 
     private void FixedUpdate()
     {
-        // adds a force to the local forward of rigidbody
-        rb.AddForce(transform.forward * acceleration,ForceMode.Force);
+        // acceleration
+        moveSphere.AddForce(-carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
+        // gravity
+        moveSphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+        // steering
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
+
+        RaycastHit hitOn;
+        RaycastHit hitNear;
+
+        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitOn, 1.1f, layerMask);
+        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitNear, 2.0f, layerMask);
+
+        //Normal Rotation
+        carNormal.up = Vector3.Lerp(carNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
+        carNormal.Rotate(0, transform.eulerAngles.y, 0);
+
+    }
+
+    public void Steer(int direction, float amount)
+    {
+        rotate = (steering * direction) * amount;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + transform.up, transform.position - (transform.up * 2));
     }
 }
