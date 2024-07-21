@@ -11,9 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed, currentSpeed;
     private float rotate, currentRotate;
+    private bool isGrounded = false;
 
     [Header("Movement Values")]
-    [SerializeField] private float acceleration = 30f;
+    [SerializeField] private float accelerationSpeed = 30f;
     [SerializeField] private float steering = 80f;
     [SerializeField] private float gravity = 10f;
     [SerializeField] private LayerMask layerMask;
@@ -33,15 +34,21 @@ public class PlayerMovement : MonoBehaviour
     {
        // follow collider
         transform.position = moveSphere.transform.position - offset;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1, layerMask);
         float steerInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(accelerateKey))
+        if (FuelManager.instance.HasFuel() && isGrounded)
         {
-            speed = acceleration;
-        }
-        if (Input.GetKey(brakeKey)) 
-        {
-            speed = -acceleration;
+            if (Input.GetKey(accelerateKey))
+            {
+                speed = accelerationSpeed;
+                FuelManager.instance.BurnFuel();
+            }
+            if (Input.GetKey(brakeKey))
+            {
+                speed = -accelerationSpeed;
+                FuelManager.instance.BurnFuel();
+            }
         }
         //Steer
         if (steerInput != 0 && Mathf.Abs(currentSpeed) > 1)
@@ -50,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
             float amount = Mathf.Abs((steerInput));
             Steer(dir, amount);
         }
-
+        if (!isGrounded)
+            speed = 0;
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f); 
         speed = 0f;
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
@@ -85,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // acceleration
+      
         moveSphere.AddForce(-carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
         // gravity
         moveSphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);

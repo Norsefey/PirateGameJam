@@ -9,22 +9,17 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float followSpeed = 0.16f;
     [SerializeField] Vector3 offSet = Vector3.zero;
     Vector3 velocity;
-    // Start is called before the first frame update
-    void Start()
-    {
-        offSet = transform.position;
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (followTarget)
         {
-            
             Vector3 newPos = Vector3.SmoothDamp(transform.position, camTarget.position + offSet, ref velocity, followSpeed * Time.deltaTime);
             float yPos = transform.position.y;
             newPos.y = yPos;
             transform.position = newPos;
         }
+        transform.LookAt(camTarget);
     }
 }
