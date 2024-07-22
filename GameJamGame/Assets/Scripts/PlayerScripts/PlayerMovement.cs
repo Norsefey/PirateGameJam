@@ -41,12 +41,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(accelerateKey))
             {
-                speed = accelerationSpeed;
+                speed = -accelerationSpeed;
                 FuelManager.instance.BurnFuel();
             }
             if (Input.GetKey(brakeKey))
             {
-                speed = -accelerationSpeed;
+                speed = accelerationSpeed;
                 FuelManager.instance.BurnFuel();
             }
         }
@@ -64,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
         rotate = 0f;
 
+        carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 90 + (steerInput * 15), carModel.localEulerAngles.z), .2f);
+        /*        frontWheels.localEulerAngles = new Vector3(0, (steerInput * 15), frontWheels.localEulerAngles.z);
+                frontWheels.localEulerAngles += new Vector3(0, 0, -moveSphere.velocity.magnitude / 2);
+                backWheels.localEulerAngles += new Vector3(0, 0, -moveSphere.velocity.magnitude / 2);*/
+
+
         if (steerInput != 0)
         {
             frontWheels.localEulerAngles = new Vector3(frontWheels.localEulerAngles.x, (steerInput * 15), frontWheels.localEulerAngles.z);
@@ -75,17 +81,17 @@ public class PlayerMovement : MonoBehaviour
         if (velocityDirection > 0)
         {
             // Moving forward
-            frontWheels.Rotate(-Vector3.right, rotationAmount);
-            backWheels.Rotate(-Vector3.right, rotationAmount);
+            frontWheels.Rotate(Vector3.forward, rotationAmount);
+            backWheels.Rotate(Vector3.forward, rotationAmount);
         }
         else if (velocityDirection < 0)
         {
             // Moving backward
-            frontWheels.Rotate(Vector3.right, rotationAmount);
-            backWheels.Rotate(Vector3.right, rotationAmount);
+            frontWheels.Rotate(-Vector3.forward, rotationAmount);
+            backWheels.Rotate(-Vector3.forward, rotationAmount);
         }
 
-    
+
 
 
     }
@@ -93,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // acceleration
-      
         moveSphere.AddForce(-carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
         // gravity
         moveSphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);

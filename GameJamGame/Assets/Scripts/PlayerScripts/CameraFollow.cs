@@ -12,6 +12,13 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 offSet = Vector3.zero;
     private Vector3 velocity;
 
+    float y_Offset;
+
+    private void Start()
+    {
+        y_Offset = transform.position.y;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
@@ -19,7 +26,7 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 newPos = Vector3.SmoothDamp(transform.position, camTarget.position + offSet, ref velocity, followSpeed * Time.deltaTime);
             float yPos = transform.position.y;
-            newPos.y = yPos;
+            newPos.y = y_Offset + camTarget.position.y;
             transform.position = newPos;
         }
         if(lookatTarget)
