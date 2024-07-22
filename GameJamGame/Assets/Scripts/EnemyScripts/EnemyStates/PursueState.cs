@@ -13,16 +13,17 @@ public class PursueState : IState
 
     public void OnEnter()
     {
-        throw new System.NotImplementedException();
+        _character.NavAgent.isStopped = false;
+        _character.NavAgent.speed = _character.PursuitSpeed;
     }
 
     public void OnExit()
     {
-        throw new System.NotImplementedException();
+        // NA
     }
 
     public void Tick()
     {
-        throw new System.NotImplementedException();
+        _character.NavAgent.SetDestination(_character.Target.transform.position);
     }
 }
