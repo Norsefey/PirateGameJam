@@ -11,9 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed, currentSpeed;
     private float rotate, currentRotate;
+    private bool isGrounded = false;
 
     [Header("Movement Values")]
-    [SerializeField] private float acceleration = 30f;
+    [SerializeField] private float accelerationSpeed = 30f;
     [SerializeField] private float steering = 80f;
     [SerializeField] private float gravity = 10f;
     [SerializeField] private LayerMask layerMask;
@@ -33,15 +34,21 @@ public class PlayerMovement : MonoBehaviour
     {
        // follow collider
         transform.position = moveSphere.transform.position - offset;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1, layerMask);
         float steerInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(accelerateKey))
+        if (FuelManager.instance.HasFuel() && isGrounded)
         {
-            speed = acceleration;
-        }
-        if (Input.GetKey(brakeKey)) 
-        {
-            speed = -acceleration;
+            if (Input.GetKey(accelerateKey))
+            {
+                speed = -accelerationSpeed;
+                FuelManager.instance.BurnFuel();
+            }
+            if (Input.GetKey(brakeKey))
+            {
+                speed = accelerationSpeed;
+                FuelManager.instance.BurnFuel();
+            }
         }
         //Steer
         if (steerInput != 0 && Mathf.Abs(currentSpeed) > 1)
@@ -50,11 +57,18 @@ public class PlayerMovement : MonoBehaviour
             float amount = Mathf.Abs((steerInput));
             Steer(dir, amount);
         }
-
+        if (!isGrounded)
+            speed = 0;
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f); 
         speed = 0f;
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
         rotate = 0f;
+
+        carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 90 + (steerInput * 15), carModel.localEulerAngles.z), .2f);
+        /*        frontWheels.localEulerAngles = new Vector3(0, (steerInput * 15), frontWheels.localEulerAngles.z);
+                frontWheels.localEulerAngles += new Vector3(0, 0, -moveSphere.velocity.magnitude / 2);
+                backWheels.localEulerAngles += new Vector3(0, 0, -moveSphere.velocity.magnitude / 2);*/
+
 
         if (steerInput != 0)
         {
@@ -67,17 +81,17 @@ public class PlayerMovement : MonoBehaviour
         if (velocityDirection > 0)
         {
             // Moving forward
-            frontWheels.Rotate(-Vector3.right, rotationAmount);
-            backWheels.Rotate(-Vector3.right, rotationAmount);
+            frontWheels.Rotate(Vector3.forward, rotationAmount);
+            backWheels.Rotate(Vector3.forward, rotationAmount);
         }
         else if (velocityDirection < 0)
         {
             // Moving backward
-            frontWheels.Rotate(Vector3.right, rotationAmount);
-            backWheels.Rotate(Vector3.right, rotationAmount);
+            frontWheels.Rotate(-Vector3.forward, rotationAmount);
+            backWheels.Rotate(-Vector3.forward, rotationAmount);
         }
 
-    
+
 
 
     }
