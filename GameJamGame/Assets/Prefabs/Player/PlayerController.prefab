@@ -691,7 +691,8 @@ Transform:
   m_LocalPosition: {x: 1.2043488, y: -0.055378865, z: 0}
   m_LocalScale: {x: 35.57611, y: 35.57611, z: 35.57611}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6745154874936010448}
   m_Father: {fileID: 6672630594772176251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8578493940356158964
@@ -3618,3 +3619,77 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &7919603063649145281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1125143575794747254}
+    m_Modifications:
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3594434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4206067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3594435
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000001192093
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267265329309773227, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: m_Name
+      value: WitchWater
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+--- !u!4 &6745154874936010448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3491292027082585873, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+  m_PrefabInstance: {fileID: 7919603063649145281}
+  m_PrefabAsset: {fileID: 0}
