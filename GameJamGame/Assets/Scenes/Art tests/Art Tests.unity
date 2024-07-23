@@ -272,7 +272,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b023af3f45810f40a05848ecaef30e3, type: 3}
---- !u!1001 &853209960
+--- !u!1001 &877010261
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -282,23 +282,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20018864
+      value: 2.618194
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.96
+      value: -5.1949024
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071067
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0da193c047f1c064bb82dbb8d9ab73d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5340,4 +5340,4 @@ SceneRoots:
   - {fileID: 1833332166}
   - {fileID: 117823166}
   - {fileID: 1589009945}
-  - {fileID: 853209960}
+  - {fileID: 877010261}
