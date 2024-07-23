@@ -40,6 +40,8 @@ public class FuelManager : MonoBehaviour
         {
             currentFuel = maxFuel;
         }
+
+        Debug.Log("Fuel Replenished: " + currentFuel + "/" + maxFuel);
     }
     public bool UseFuel(float amount)
     {// for abilities, returns true if consumption amount does not deplete below zero
