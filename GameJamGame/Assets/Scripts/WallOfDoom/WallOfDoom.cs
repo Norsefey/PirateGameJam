@@ -15,14 +15,14 @@ public class WallOfDoom : MonoBehaviour
     [SerializeField] private float fastSpeed = 8;
 
     private float moveSpeed = 5;
-    public float distanceToPlayer = 0;
+    private float distanceToPlayer = 0;
 
     [Header("Visuals")]
-    private Renderer wallRenderer;
-    private string heightMapProperty = "_Parallax"; // The property name for the height map scale in the shader
     [SerializeField] private float minHeightValue = 0f; // Minimum height map value
     [SerializeField] private float maxHeightValue = 1f; // Maximum height map value
     [SerializeField] private float parallaxSpeed = 1f; // Speed of the ping-pong effect
+    private Renderer wallRenderer;
+    private string heightMapProperty = "_Parallax"; // The property name for the height map scale in the shader
 
     // Start is called before the first frame update
     void Start()
