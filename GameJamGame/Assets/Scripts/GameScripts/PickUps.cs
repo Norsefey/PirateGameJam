@@ -20,14 +20,15 @@ public class PickUps : MonoBehaviour
 
     public enum BonusType
     {
+        None,
         SpeedIncrease,
-        FuelEfficany,
-        IncreasePickupRange,
+        FuelEfficiency,
         DoublePickupAmount
     }
     [Header("Bonus Type Variables")]
     [SerializeField] BonusType bonusType;
     [SerializeField] float bonusTime = 2;
+    [SerializeField] float bonusValue = 20;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,25 +37,34 @@ public class PickUps : MonoBehaviour
             switch (type)
             {
                 case PickUpType.Fuel:
+                    // increase current fuel
                     FuelManager.instance.ReplenishFuel(replenishAmount);
                     Destroy(gameObject);
                     break;
                 case PickUpType.Upgrade:
                     // increase count in upgrade counter
+                    PlayerStats.Instance.AddToUpgradeCollection(upgradeAmount);
                     break;
                 case PickUpType.TempBonus:
-                    // give player a type of temp Bonus
+                    // give player a temp Bonus
                     ActivateBonus();
                     break;
             }
         }
     }
-
     private void ActivateBonus()
     {
         switch (bonusType)
         {
-
+            case BonusType.SpeedIncrease:
+               StartCoroutine(PlayerStats.Instance.TempIncreaseSpeed(bonusTime, bonusValue));
+                break;
+            case BonusType.FuelEfficiency:
+                StartCoroutine(PlayerStats.Instance.TempFuelBurnRate(bonusTime, bonusValue));
+                break;
+            case BonusType.DoublePickupAmount:
+                StartCoroutine(PlayerStats.Instance.TempIncreaseCollectionRate(bonusTime, bonusValue));
+                break;
         }
     }
 
