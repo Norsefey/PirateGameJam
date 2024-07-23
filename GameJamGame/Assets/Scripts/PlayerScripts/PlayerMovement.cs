@@ -67,8 +67,6 @@ public class PlayerMovement : MonoBehaviour
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
         rotate = 0f;
 
-        Debug.Log(currentSpeed);
-
         // rotate car visual based on steer input, with a base of 15 degrees + 90 for offset of model
         carModel.localEulerAngles = Vector3.Lerp(carModel.localEulerAngles, new Vector3(0, 90 + (steerInput * 15), carModel.localEulerAngles.z), .2f);
         // rotate wheels based on steer input, based on 15 degrees

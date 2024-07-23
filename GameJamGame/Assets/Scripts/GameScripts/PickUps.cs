@@ -27,8 +27,9 @@ public class PickUps : MonoBehaviour
     }
     [Header("Bonus Type Variables")]
     [SerializeField] BonusType bonusType;
-    [SerializeField] float bonusTime = 2;
-    [SerializeField] float bonusValue = 20;
+    [SerializeField] float bonusTime = 4;
+    [Tooltip("The New Temp value of the Stat")]
+    [SerializeField] float bonusValue = 120;
 
     private void OnTriggerEnter(Collider other)
     {

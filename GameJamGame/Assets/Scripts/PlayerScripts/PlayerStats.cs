@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     [Space(5), Header("Fuel Management")]
     public float maxFuel = 100;
     public float fuelBurnRate = 0.02f;
+    public float gloomFuelBurnRate = .04f;
+    private float defaultfuelBurnRate;
+    
     [Space(5), Header("Movement")]
     public float maxSpeed = 80f;
     public float acceleration = 12f;
@@ -28,12 +31,24 @@ public class PlayerStats : MonoBehaviour
 
         carRB.drag = carDrag;
         carRB.mass = carWeight;
+        defaultfuelBurnRate = fuelBurnRate;
     }
     public void AddToUpgradeCollection(float value)
     {
         upgradeCollection += value * collectionRate;
     }
     
+    public void GloomEffect()
+    {
+        fuelBurnRate = gloomFuelBurnRate;
+        // do other stuff when wall is to close
+    }
+    public void RemoveGloom()
+    {
+        fuelBurnRate = defaultfuelBurnRate;
+        // disable other stuff
+    }
+
     public IEnumerator TempIncreaseSpeed(float time, float newValue)
     {
         float temp = maxSpeed;

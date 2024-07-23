@@ -6,8 +6,10 @@ public class WallOfDoom : MonoBehaviour
 {
     [Header("Player Distances")]
     [SerializeField] Transform player;
-    [SerializeField] private float closeDistance = 200;
+    [SerializeField] Transform measurePoint;
+    [SerializeField] private float closeDistance = 220;
     [SerializeField] private float farDistance = 300;
+    [SerializeField] private float deathDistance = 210;
 
     [Header("Speeds")]
     [SerializeField] private float defaultMoveSpeed = 5;
@@ -24,29 +26,48 @@ public class WallOfDoom : MonoBehaviour
     private Renderer wallRenderer;
     private string heightMapProperty = "_Parallax"; // The property name for the height map scale in the shader
 
+    private enum WallState
+    {
+        close,
+        normal,
+        far
+    }
+    private WallState wallState;
+
     // Start is called before the first frame update
     void Start()
     {
         wallRenderer = GetComponent<Renderer>();
         moveSpeed = defaultMoveSpeed;
+        wallState = WallState.normal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer < closeDistance)
+        measurePoint.position = new Vector3 (player.position.x, measurePoint.position.y, measurePoint.position.z);
+        distanceToPlayer = Vector3.Distance(measurePoint.position, player.position);
+        Debug.Log(distanceToPlayer);
+        if (distanceToPlayer < closeDistance && wallState != WallState.close)
         {
             moveSpeed = slowSpeed;
+            PlayerStats.Instance.GloomEffect();
+            wallState = WallState.close;
         }
-        else if (distanceToPlayer > farDistance) 
+        else if (distanceToPlayer > farDistance && wallState != WallState.far) 
         {
             moveSpeed = fastSpeed;
+            PlayerStats.Instance.RemoveGloom();
+            wallState = WallState.far;
         }
-        else
+        else if (wallState != WallState.normal && (distanceToPlayer < farDistance && (distanceToPlayer > closeDistance)))
         {
             moveSpeed = defaultMoveSpeed;
+            PlayerStats.Instance.RemoveGloom();
+            wallState = WallState.normal;
+        }else if(distanceToPlayer < deathDistance)
+        {
+            Debug.Log("Dead");
         }
 
         // a visual effect to the wall's material
