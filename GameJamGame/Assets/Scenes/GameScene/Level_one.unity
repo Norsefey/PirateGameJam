@@ -339,11 +339,11 @@ MonoBehaviour:
   player: {fileID: 549742976}
   measurePoint: {fileID: 908541048}
   closeDistance: 60
-  farDistance: 200
+  farDistance: 190
   deathDistance: 25
   defaultMoveSpeed: 15
-  slowSpeed: 8
-  fastSpeed: 25
+  slowSpeed: 10
+  fastSpeed: 30
   minHeightValue: 0
   maxHeightValue: 0.5
   parallaxSpeed: 0.05
@@ -526,6 +526,10 @@ PrefabInstance:
     - target: {fileID: 6255581467623980138, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255581467623980138, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6284358851057685296, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: m_Layer
@@ -1229,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607352965413156229, guid: 7dff833159e84e44c98f1d81172b56c2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.45
+      value: -15.83
       objectReference: {fileID: 0}
     - target: {fileID: 2607352965413156229, guid: 7dff833159e84e44c98f1d81172b56c2, type: 3}
       propertyPath: m_LocalRotation.w
