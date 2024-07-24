@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7746742596125371833}
   - component: {fileID: 2133626590321749908}
   m_Layer: 5
-  m_Name: Increase Amount
+  m_Name: IncrementText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.55
-  m_fontSizeBase: 36
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8548550165143259427}
   - component: {fileID: 1016010488559293885}
   m_Layer: 5
-  m_Name: InvestPoints
+  m_Name: Buy_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8548550165143259427}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8005218985125360522}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: IncreaseStat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3691750028466177452
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: 50}
+  m_AnchoredPosition: {x: 111.5, y: 50}
   m_SizeDelta: {x: 86.100006, y: 82.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3778150530008157881
@@ -800,6 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6025993818682690293}
+  - component: {fileID: 8005218985125360522}
   m_Layer: 5
   m_Name: Upgrade_Banner
   m_TagString: Untagged
@@ -831,3 +844,18 @@ RectTransform:
   m_AnchoredPosition: {x: -1, y: 98}
   m_SizeDelta: {x: 684.7, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8005218985125360522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894584916334126028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ecfcc86d4dc2d439f7a4dc1403b97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 50
+  IncreamentText: {fileID: 2133626590321749908}
+  costText: {fileID: 5039011234514759292}

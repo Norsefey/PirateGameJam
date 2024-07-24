@@ -7,8 +7,8 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance;
     [Space(5), Header("Fuel Management")]
     public float maxFuel = 100;
-    public float fuelBurnRate = 0.02f;
-    public float gloomFuelBurnRate = .04f;
+    public float fuelBurnRate = 0.04f;
+    public float gloomFuelBurnRate = .06f;
     private float defaultfuelBurnRate;
     
     [Space(5), Header("Movement")]
@@ -21,8 +21,8 @@ public class PlayerStats : MonoBehaviour
     public float carWeight = 300;
     public float carDrag = 2;
 
-    [Space(5), Header("Collections")]
-    public float upgradeCollection = 0;
+    [Space(5), Header("Upgrade Points")]
+    public float upgradePoints = 0;
     private float collectionRate = 1;
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void AddToUpgradeCollection(float value)
     {
-        upgradeCollection += value * collectionRate;
+        upgradePoints += value * collectionRate;
     }
     
     public void GloomEffect()
