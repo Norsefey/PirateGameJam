@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2929290304037558559}
   - component: {fileID: 8005158564939187184}
+  - component: {fileID: 3851528721693707266}
   - component: {fileID: 2785876799707084443}
   m_Layer: 0
   m_Name: Car
@@ -143,6 +144,20 @@ MonoBehaviour:
   backWheels: {fileID: 7434806305347771819}
   accelerateKey: 119
   brakeKey: 115
+--- !u!114 &3851528721693707266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59653420526817719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6daacda7add6f54c9788de347f64e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentFuel: 0
+  fuelSlider: {fileID: 0}
 --- !u!135 &2785876799707084443
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -174,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9209261882610996533}
   - component: {fileID: 2904910085701828738}
+  - component: {fileID: 5850812297466389664}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -258,6 +274,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5850812297466389664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104627050045354711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &207788818036285066
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +637,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 688509913611285462}
-  - component: {fileID: 1395807911598631858}
   - component: {fileID: 5467629343166022253}
   m_Layer: 0
   m_Name: PlayerController
@@ -620,23 +658,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2929290304037558559}
   - {fileID: 2001627637935297894}
+  - {fileID: 2929290304037558559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1395807911598631858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2755500922921711169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6daacda7add6f54c9788de347f64e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuelSlider: {fileID: 0}
 --- !u!114 &5467629343166022253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,16 +674,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b721e9011038c994aba7e44dfdfbeeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
   maxFuel: 100
   fuelBurnRate: 0
   gloomFuelBurnRate: 0.04
+  playerMove: {fileID: 8005158564939187184}
   maxSpeed: 80
   acceleration: 12
   steerStrength: 15
   carRB: {fileID: 8662269983810415906}
   carWeight: 300
   carDrag: 2
-  upgradeCollection: 0
+  upgradePoints: 0
 --- !u!1 &4337306938764923903
 GameObject:
   m_ObjectHideFlags: 0
