@@ -6,21 +6,17 @@ using UnityEngine.UI;
 public class FuelManager : MonoBehaviour
 {
     public static FuelManager instance;
-
-    public float currentFuel;
-    public float maxFuel;
-    public float fuelBurnRate;
-
+    private float currentFuel;
     [SerializeField] private Slider fuelSlider;
 
-    private void Awake()
+    void Start()
     {
         instance = this;
         // might disable this later/ if we want fuel amount to carry over from previous level
-        currentFuel = maxFuel;
+        currentFuel = PlayerStats.Instance.maxFuel;
         if (fuelSlider != null)
         {
-            fuelSlider.maxValue = maxFuel;
+            fuelSlider.maxValue = PlayerStats.Instance.maxFuel;
             fuelSlider.value = currentFuel;
         }
             
@@ -28,7 +24,7 @@ public class FuelManager : MonoBehaviour
 
     public void BurnFuel()
     {// for movement, consumes fuel at the fuel burn rate
-        currentFuel -= fuelBurnRate;
+        currentFuel -= PlayerStats.Instance.fuelBurnRate;
         if(fuelSlider != null)
             fuelSlider.value = currentFuel;
     }
@@ -36,10 +32,12 @@ public class FuelManager : MonoBehaviour
     public void ReplenishFuel(float amount)
     {// for pick up items to restore fuel
         currentFuel += amount;
-        if(currentFuel > maxFuel)
+        if(currentFuel > PlayerStats.Instance.maxFuel)
         {
-            currentFuel = maxFuel;
+            currentFuel = PlayerStats.Instance.maxFuel;
         }
+
+        Debug.Log("Fuel Replenished: " + currentFuel + "/" + PlayerStats.Instance.maxFuel);
     }
     public bool UseFuel(float amount)
     {// for abilities, returns true if consumption amount does not deplete below zero
