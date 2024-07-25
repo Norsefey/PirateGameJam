@@ -45,7 +45,6 @@ public class ProjectileAttack : AttackBase
         rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
 
-        Debug.Log(Vector3.Dot(this.gameObject.transform.forward, direction));
         if (Vector3.Dot(this.gameObject.transform.forward, direction) > 0.995f)
         {
             return true;
