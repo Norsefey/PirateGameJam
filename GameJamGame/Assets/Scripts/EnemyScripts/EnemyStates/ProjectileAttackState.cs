@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.TextCore.Text;
 
 public class ProjectileAttackState : IState
 {
@@ -26,14 +27,11 @@ public class ProjectileAttackState : IState
 
     public void Tick()
     {
-        //Shoot
+        //If Aimed Shoot
         if (_character.CanShoot)
         {
             _character.Shoot(_character.Target.transform);
         }
-
-        
-
     }
 
     private void GetDestinationNearTarget(Transform target)
