@@ -7,7 +7,7 @@ public class ProjectileEnemy : StandardEnemy
 {
     [SerializeField] float projectileSpeed;
     [SerializeField] Transform projectileStart;
-    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject projectilePrefab;
     [SerializeField] float cooldownTime;
 
     public bool CanShoot = true;
@@ -52,13 +52,11 @@ public class ProjectileEnemy : StandardEnemy
 
     public void Shoot(Transform target)
     {
-        GameObject projectileObj = Instantiate(projectile, projectileStart.position, Quaternion.identity);
-        Rigidbody rb = projectileObj.GetComponent<Rigidbody>();
-
+        GameObject projectileObj = Instantiate(projectilePrefab, projectileStart.position, Quaternion.identity);
+        projectileObj.TryGetComponent<Projectile>(out Projectile projectile);
         Vector3 direction = target.position - projectileStart.position;
-        direction = Vector3.Normalize(direction);
 
-        rb.AddForce(direction * projectileSpeed, ForceMode.VelocityChange);
+        projectile.Initialize(5, projectileSpeed, direction);
 
         StartCoroutine(Cooldown(cooldownTime));
     }
