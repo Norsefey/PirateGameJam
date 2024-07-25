@@ -3,41 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileEnemy : StandardEnemy
+public class ProjectileEnemy : EnemyBase
 {
-    [SerializeField] float projectileSpeed;
-    [SerializeField] Transform projectileStart;
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] float cooldownTime;
-
-    public bool CanShoot = true;
+    [SerializeField] ProjectileAttack _attack;
 
     protected override void Awake()
     {
         base.Awake();
 
+        #region State Machine Setup
         // Create the states
         var pursue = new PursueState(this);
-        var projectileAttack = new ProjectileAttackState(this);
+        var projectileAttack = new AttackState(this, _attack);
         var die = new DieState(this);
 
-        // At() is the shorthand of stateMachine.AddTransition
-        void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
-
         // Normal Transitions
-        At(pursue, projectileAttack, HasTargetInRange());
-        At(projectileAttack, pursue, HasTargetOutRange());
+        At(pursue, projectileAttack, new Func<bool>[] { HasTarget, TargetInRange });
+        At(projectileAttack, pursue, new Func<bool>[] { Or(Not(TargetInRange), Not(HasTarget)) });
 
         // Any Transitions
-        _stateMachine.AddAnyTransition(die, IsDead());
+        _stateMachine.AddAnyTransition(die, new Func<bool>[] { IsDead });
 
         //Set the default state
         _stateMachine.SetState(pursue);
-
-        // Conditions
-        Func<bool> HasTargetInRange() => () => Target != null && Vector3.Distance(transform.position, Target.transform.position) <= _attackRange;
-        Func<bool> HasTargetOutRange() => () => Target != null && Vector3.Distance(transform.position, Target.transform.position) > _attackRange;
-        Func<bool> IsDead() => () => _isDead == true;
+        #endregion
     }
 
     protected override void Die()
@@ -48,23 +37,5 @@ public class ProjectileEnemy : StandardEnemy
     protected override void OnDestroy()
     {
         base.OnDestroy();
-    }
-
-    public void Shoot(Transform target)
-    {
-        GameObject projectileObj = Instantiate(projectilePrefab, projectileStart.position, Quaternion.identity);
-        projectileObj.TryGetComponent<Projectile>(out Projectile projectile);
-        Vector3 direction = target.position - projectileStart.position;
-
-        projectile.Initialize(5, projectileSpeed, direction);
-
-        StartCoroutine(Cooldown(cooldownTime));
-    }
-
-    private IEnumerator Cooldown(float coolDownTime)
-    {
-        CanShoot = false;
-        yield return new WaitForSeconds(coolDownTime);
-        CanShoot = true;
     }
 }

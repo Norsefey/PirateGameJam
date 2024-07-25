@@ -8,10 +8,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] string[] tagsToDamage;
     [SerializeField] float _lifeTime;
-    private float _damage;
-    private float _speed;
-    private Vector3 _direction;
-    private bool _isInitialized = false;
+    [SerializeField] float _damage;
+    [SerializeField] float _speed;
     Rigidbody _rb;
 
 
@@ -26,22 +24,11 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move in y direction at x speed
     }
 
     private void FixedUpdate()
     {
-        if (!_isInitialized) return;
-
-        _rb.velocity = _direction.normalized * _speed * Time.deltaTime;
-    }
-
-    public void Initialize(float damage,float speed,  Vector3 direction)
-    {
-        _damage = damage;
-        _speed = speed;
-        _direction = direction;
-        _isInitialized = true;
+        _rb.velocity = transform.forward.normalized * _speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -28,11 +28,45 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode accelerateKey = KeyCode.W;
     [SerializeField] private KeyCode brakeKey = KeyCode.S;
     
+    bool atFinishLine = false;
 
     private void Update()
     {
        // follow collider
         transform.position = moveSphere.transform.position - offset;
+        if(!atFinishLine)
+            PlayerInput();
+    }
+    private void FixedUpdate()
+    {
+        if (!atFinishLine)
+            ApplyForces();
+        else
+            moveSphere.AddForce(carModel.transform.forward * PlayerStats.Instance.maxSpeed, ForceMode.Acceleration);
+    }
+
+    private void ApplyForces()
+    {
+        // acceleration
+        moveSphere.AddForce(carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
+        // gravity
+        moveSphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+        // steering
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
+
+        RaycastHit hitOn;
+        RaycastHit hitNear;
+        // Use the normal of the surface to tilt car
+        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitOn, 1.1f, layerMask);
+        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitNear, 2.0f, layerMask);
+
+        //Normal Rotation
+        carNormal.up = Vector3.Lerp(carNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
+        carNormal.Rotate(0, transform.eulerAngles.y, 0);
+
+    }
+    private void PlayerInput()
+    {
         // check if player is on/near ground
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1, layerMask);
         // steering Input
@@ -42,13 +76,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(accelerateKey))
             {
-                // for some reason negative go forward
-                topSpeed = -PlayerStats.Instance.maxSpeed;
+                topSpeed = PlayerStats.Instance.maxSpeed;
                 FuelManager.instance.BurnFuel();
             }
             if (Input.GetKey(brakeKey))
             {
-                topSpeed = PlayerStats.Instance.maxSpeed;
+                topSpeed = -PlayerStats.Instance.maxSpeed;
                 FuelManager.instance.BurnFuel();
             }
         }
@@ -62,9 +95,9 @@ public class PlayerMovement : MonoBehaviour
         // Set current Speed and rotation
         if (!isGrounded || Input.GetKey(KeyCode.Space))
             topSpeed = 0;
-        currentSpeed = Mathf.SmoothStep(currentSpeed, topSpeed, Time.deltaTime * PlayerStats.Instance.acceleration); 
+        currentSpeed = Mathf.SmoothStep(currentSpeed, topSpeed, Time.deltaTime * PlayerStats.Instance.acceleration);
         topSpeed = 0f;
-        currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); 
+        currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
 
         // rotate car visual based on steer input, with a base of 15 degrees + 90 for offset of model
@@ -91,28 +124,14 @@ public class PlayerMovement : MonoBehaviour
             backWheels.Rotate(-Vector3.forward, rotationAmount);
         }
     }
-
-    private void FixedUpdate()
+    public void EnableFinishLineControls()
     {
-        // acceleration
-        moveSphere.AddForce(-carModel.transform.forward * currentSpeed, ForceMode.Acceleration);
-        // gravity
-        moveSphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
-        // steering
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
-
-        RaycastHit hitOn;
-        RaycastHit hitNear;
-        // Use the normal of the surface to tilt car
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitOn, 1.1f, layerMask);
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitNear, 2.0f, layerMask);
-
-        //Normal Rotation
-        carNormal.up = Vector3.Lerp(carNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
-        carNormal.Rotate(0, transform.eulerAngles.y, 0);
-
+        atFinishLine = true;
     }
-
+    public void DisableFinishLineControls()
+    {
+        atFinishLine = false;
+    }
     public void Steer(int direction, float amount)
     {
         rotate = (PlayerStats.Instance.steerStrength * direction) * amount;

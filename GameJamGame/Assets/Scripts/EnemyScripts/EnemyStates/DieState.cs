@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class DieState : IState
 {
-    private readonly StandardEnemy _character;
+    private readonly EnemyBase _character;
 
-    public DieState(StandardEnemy character)
+    public DieState(EnemyBase character)
     {
         _character = character;
     }
     public void OnEnter()
     {
-        throw new System.NotImplementedException();
+        _character.NavAgent.isStopped = true;
     }
 
     public void OnExit()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Tick()
     {
-        throw new System.NotImplementedException();
+
     }
 }

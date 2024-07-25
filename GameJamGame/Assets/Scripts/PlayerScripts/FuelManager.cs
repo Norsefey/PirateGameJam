@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FuelManager : MonoBehaviour
 {
     public static FuelManager instance;
-    private float currentFuel;
+    public float currentFuel;
     [SerializeField] private Slider fuelSlider;
 
     void Start()

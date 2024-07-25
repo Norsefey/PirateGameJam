@@ -16,7 +16,7 @@ public class Upgrade : MonoBehaviour
             PlayerStats.Instance.maxFuel += incrementAmount;
             PlayerStats.Instance.upgradePoints -= cost;
         }
-        IncreamentText.text = PlayerStats.Instance.maxFuel + "->" + (PlayerStats.Instance.maxFuel + incrementAmount);
+        IncreamentText.text = PlayerStats.Instance.maxFuel + " -> " + (PlayerStats.Instance.maxFuel + incrementAmount);
     }
 
     public void IncreaseEfficiency(float decreaseAmount)

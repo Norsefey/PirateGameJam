@@ -3,37 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuicidalEnemy : StandardEnemy
+public class SuicidalEnemy : EnemyBase
 {
-    [SerializeField] float rammingForce;
+    [SerializeField] SuicidalAttack _attack;
 
     protected override void Awake()
     {
         base.Awake();
 
+        #region State Machine Setup
         // Create the states
         var pursue = new PursueState(this);
-        var suicidalAttack = new SuicidalAttackState(this, rammingForce);
+        var suicidalAttack = new AttackState(this, _attack);
         var die = new DieState(this);
 
-        // At() is the shorthand of stateMachine.AddTransition
-        void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
-
         // Normal Transitions
-        At(pursue, suicidalAttack, HasTargetInRange());
-        At(suicidalAttack, pursue, HasTargetOutRange());
+        At(pursue, suicidalAttack, new Func<bool>[] {HasTarget, TargetInRange});
+        At(suicidalAttack, pursue, new Func<bool>[] {Or(Not(HasTarget), Not(TargetInRange)), IsRecoveredFromAttack});
 
         // Any Transitions
-        _stateMachine.AddAnyTransition(die, IsDead());
+        _stateMachine.AddAnyTransition(die, new Func<bool>[] {IsDead});
 
         //Set the default state
         _stateMachine.SetState(pursue);
-
-        // Conditions
-        Func<bool> HasTargetInRange() => () => Target != null && Vector3.Distance(transform.position, Target.transform.position) <= _attackRange;
-        Func<bool> HasTargetOutRange() => () => Target != null && Vector3.Distance(transform.position, Target.transform.position) > _attackRange;
-        Func<bool> IsDead() => () => _isDead == true;
+        #endregion
     }
+
+    Func<bool> IsRecoveredFromAttack => () => _attack.IsRecovered();
 
     protected override void Die()
     {

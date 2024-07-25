@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private bool followTarget = true;
+    public bool followTarget = true;
     [SerializeField] private bool lookatTarget = false;
 
     [SerializeField] private Transform camTarget;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
+using static UnityEngine.UI.Selectable;
 
 //https://www.youtube.com/watch?v=V75hgcsCGOM 
 public class StateMachine
@@ -46,7 +47,7 @@ public class StateMachine
     }
 
 
-    public void AddTransition(IState from, IState to, Func<bool> predicate)
+    public void AddTransition(IState from, IState to, Func<bool>[] predicates)
     {
         //try to get the list of transitions for the from state
         if(_transitions.TryGetValue(from.GetType(), out var transitions) == false)
@@ -55,23 +56,32 @@ public class StateMachine
             _transitions[from.GetType()] = transitions;
         }
 
-        transitions.Add(new Transition(to, predicate));
+        transitions.Add(new Transition(to, predicates));
     }
 
-    public void AddAnyTransition(IState state, Func<bool> predicate)
+    public void AddAnyTransition(IState state, Func<bool>[] predicates)
     {
-        _anyTransitions.Add(new Transition(state, predicate));
+        _anyTransitions.Add(new Transition(state, predicates));
     }
 
     private class Transition
     {
-        public Func<bool> Condition { get; }
+        public Func<bool>[] Conditions { get; }
         public IState To { get; }
 
-        public Transition(IState to, Func<bool> condition)
+        public bool ConditionsMet()
+        {
+            foreach (var condition in Conditions)
+            {
+                if (!condition()) return false;
+            }
+            return true;
+        }
+
+        public Transition(IState to, Func<bool>[] conditions)
         {
             To = to;
-            Condition = condition;
+            Conditions = conditions;
         }
     }
 
@@ -79,14 +89,23 @@ public class StateMachine
     {
         //_anyTransitions are transitions coming from any state, because they don't have a from state
         foreach (var transition in _anyTransitions)
-            if (transition.Condition())
+        {
+            if (transition.ConditionsMet())
+            {
                 return transition;
+            }          
+        }
+
 
         //current transitions are transitions for the current state
         foreach (var transition in _currentTransitions)
-            if (transition.Condition())
+        {
+            if (transition.ConditionsMet())
+            {
                 return transition;
-        
+            }
+        }
+      
         return null;
     }
 
