@@ -21,10 +21,15 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    private void Update()
+    {
+
+    }
+
     public void AddHealth(float healthChange)
     {
         _currentHealth += healthChange;
-        OnHealthIncreased.Invoke();
+        OnHealthIncreased?.Invoke();
 
         if (_currentHealth > _maxHealth) _currentHealth = _maxHealth;
     }
@@ -32,12 +37,12 @@ public class Health : MonoBehaviour
     public void RemoveHealth(float healthChange)
     {
         _currentHealth -= healthChange;
-        OnHealthDecreased.Invoke();
+        OnHealthDecreased?.Invoke();
 
-        if(_currentHealth < 0)
+        if(_currentHealth <= 0)
         {
             _currentHealth = 0;
-            OnHealthDepleted.Invoke();
+            OnHealthDepleted?.Invoke();
         }
     }
 }

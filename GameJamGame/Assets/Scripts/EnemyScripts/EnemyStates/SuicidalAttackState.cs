@@ -5,9 +5,9 @@ using static UnityEngine.InputManagerEntry;
 
 public class SuicidalAttackState : IState
 {
-    private readonly StandardEnemy _character;
+    private readonly EnemyBase _character;
     private float _attackForce;
-    public SuicidalAttackState(StandardEnemy character, float attackForce)
+    public SuicidalAttackState(EnemyBase character, float attackForce)
     {
         _character = character;
         _attackForce = attackForce;

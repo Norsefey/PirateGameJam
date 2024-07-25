@@ -149,3 +149,5 @@ MonoBehaviour:
   tagsToDamage:
   - 
   _lifeTime: 10
+  _damage: 10
+  _speed: 1000
