@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -15,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float _spawnDelayMultiplier;
 
     [SerializeField] GameObject[] _enemies;
+    [SerializeField] GameObject _testingTarget;
 
     private bool _canSpawnEnemies = true;
     private Bounds _bounds;
@@ -55,7 +55,16 @@ public class EnemySpawner : MonoBehaviour
 
         int randIndex = Random.Range(0, Enemies.Length);
         GameObject randEnemy = Enemies[randIndex];
-        GameObject enemyObj = Instantiate(randEnemy, spawnPos, Quaternion.identity);       
+        GameObject enemyObj = Instantiate(randEnemy, spawnPos, Quaternion.identity);
+
+        //Reference the player
+        bool isEnemy = enemyObj.TryGetComponent<EnemyBase>(out EnemyBase enemy);
+
+        if (PlayerStats.Instance != null)
+        {
+            enemy.Target = PlayerStats.Instance.playerMove.gameObject;
+        }
+        else enemy.Target = _testingTarget;
     }
 
     private IEnumerator Cooldown(float cooldownTime)

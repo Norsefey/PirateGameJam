@@ -15,7 +15,8 @@ public class PursueState : IState
     {
         _character.NavAgent.ResetPath();
         _character.NavAgent.isStopped = false;
-        _character.NavAgent.speed = _character.PursuitSpeed;
+        _character.NavAgent.speed = _character.Speed;
+        _character.NavAgent.Warp(_character.transform.position);
     }
 
     public void OnExit()
