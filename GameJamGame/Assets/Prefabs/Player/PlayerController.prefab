@@ -2513,6 +2513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3864946234935487916, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
+      propertyPath: ClampVelocityModule.dampen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4267265329309773227, guid: f9a69244ba6323f4c838d762d8bac036, type: 3}
       propertyPath: m_Name
       value: WitchWater
