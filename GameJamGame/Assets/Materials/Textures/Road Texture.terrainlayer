@@ -6,17 +6,17 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer
-  m_DiffuseTexture: {fileID: 2800000, guid: 248cea01419b831459e44543998c46d6, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 22fa3ca26490ac846ad7c211c184180e, type: 3}
+  m_Name: Road Texture
+  m_DiffuseTexture: {fileID: 2800000, guid: 51d96f075e2226f4fab04c3ea4660621, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: b2b9b11153ef1fb428750ab06b72dc62, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 10, y: 10}
   m_TileOffset: {x: 0, y: 0}
-  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Specular: {r: 1, g: 1, b: 1, a: 0}
   m_Metallic: 0
   m_Smoothness: 0
   m_NormalScale: 1
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_DiffuseRemapMax: {x: 0.25710908, y: 0.3490566, z: 0.2552065, w: 1}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
