@@ -17,11 +17,11 @@ MonoBehaviour:
   Name: graph_0
   IsRoot: 1
   FlagedForDelete: 0
-  GUID: 5f42c076-b747-4bf7-8dcb-c742faf8afe7
+  GUID: ffe41dd5-878f-4af1-9880-36b68cd99386
   Index: 0
   Input:
-  - rid: 7272759833505300480
-  - rid: 7272759833505300481
+  - rid: 7272759833505300482
+  - rid: 7272759833505300483
   Output:
   - Index: 0
     VirtualOutputIndex: 6
@@ -139,7 +139,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7272759833505300480
+    - rid: 7272759833505300482
       type: {class: SubstanceInputInt2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
           SliderClamp: 0
           EnumValueCount: 0
           EnumValues: []
-    - rid: 7272759833505300481
+    - rid: 7272759833505300483
       type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 1
