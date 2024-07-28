@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/StartScreen.unity
     guid: 0527aed20061f0d49a49eb14c129b5c8
   - enabled: 1
-    path: Assets/Scenes/GameScene/Start Screen.unity
+    path: Assets/Prefabs/Scenes/GameScene/Start Screen.unity
     guid: 3cef2960dd9e05949bef20b3cec6a902
   - enabled: 1
-    path: Assets/Scenes/GameScene/Upgrade.unity
+    path: Assets/Prefabs/Scenes/GameScene/Upgrade.unity
     guid: 8aeed6697a80d7e44bc4886cc279d22f
   - enabled: 1
-    path: Assets/Scenes/GameScene/Level_one.unity
+    path: Assets/Prefabs/Scenes/GameScene/Level_one.unity
     guid: 4c2660a81bab24945af7030ca4520e09
   - enabled: 1
-    path: Assets/Scenes/GameScene/level_Two.unity
+    path: Assets/Prefabs/Scenes/GameScene/level_Two.unity
     guid: 533f2aed17286fd4b8d763f8f53a6ea7
   - enabled: 1
-    path: Assets/Scenes/GameScene/Level_Three.unity
+    path: Assets/Prefabs/Scenes/GameScene/Level_Three.unity
     guid: f5876a9aa2af6224980cff88c2d89df1
   - enabled: 1
-    path: Assets/Scenes/GameScene/Lose Scene.unity
+    path: Assets/Prefabs/Scenes/GameScene/Lose Scene.unity
     guid: 060b0a1ca2f20e04b983f6d52927d527
   m_configObjects: {}
