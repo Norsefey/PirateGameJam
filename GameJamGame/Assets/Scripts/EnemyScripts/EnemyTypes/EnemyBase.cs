@@ -3,11 +3,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Health), typeof(NavMeshAgent), typeof(Rigidbody))]
+[RequireComponent(typeof(Health), typeof(NavMeshAgent))]
 public abstract class EnemyBase : MonoBehaviour
 {
     
-    [SerializeField] protected float _attackRange;
+    [SerializeField] public float AttackRange;
     [SerializeField] public float Speed;
 
     [Header("Randomization")]
@@ -37,8 +37,7 @@ public abstract class EnemyBase : MonoBehaviour
         //State Machine
         _stateMachine = new StateMachine();
 
-        //Event Subscriptions
-        _health.OnHealthDepleted += Die;
+        _health.OnHealthDepleted += SetDead;
     }
 
     // Start is called before the first frame update
@@ -58,14 +57,19 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        //Unsubscribe any events
-        _health.OnHealthDepleted -= Die;
+
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         _isDead = true;
+        _health.OnHealthDepleted -= SetDead;
         Destroy(this.gameObject);
+    }
+
+    public void SetDead()
+    {
+        _isDead=true;
     }
 
     protected virtual void Randomize()
@@ -105,7 +109,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     // Basic State Transition Conditions
     protected Func<bool> HasTarget => () => Target != null;
-    protected Func<bool> TargetInRange => () => Vector3.Distance(transform.position, Target.transform.position) <= _attackRange;
+    protected Func<bool> TargetInRange => () => Vector3.Distance(transform.position, Target.transform.position) <= AttackRange;
     protected Func<bool> IsDead => () => _isDead == true;
     #endregion
 }

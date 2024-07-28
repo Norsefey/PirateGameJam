@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
+using UnityEngine.UIElements;
 public class ProjectileAttack : AttackBase
 {
     [SerializeField] float _cooldownTime;
     [SerializeField] float _rotationSpeed;
+    [SerializeField] float _minDistanceToTarget;
     [SerializeField] GameObject _projectilePrefab;
     [SerializeField] Transform _projectileStart;
-    
+    [SerializeField] float _attackMoveSpeed; //Speed of the enemy during the attack state
+
     public override void DoAttack(Transform target)
     {
         base.DoAttack(target);
 
-        bool isAimed = Aim(target, _rotationSpeed);
+        if(Vector3.Distance(transform.position, target.position) < _minDistanceToTarget)
+        {
+            _character.NavAgent.SetDestination(GetPositionNearPlayer(target));
+        }
 
+        bool isAimed = Aim(target, _rotationSpeed);
         if (!isAimed) return;
         Shoot(target, _projectilePrefab, _projectileStart);
         StartCoroutine(Cooldown(_cooldownTime));
@@ -23,36 +28,24 @@ public class ProjectileAttack : AttackBase
 
     public override void EnterAttack()
     {
-        
+        _character.NavAgent.speed = _attackMoveSpeed;
+        _character.NavAgent.ResetPath();
+    }
+
+    private Vector3 GetPositionNearPlayer(Transform target)
+    {
+        Vector2 randomPoint = Random.insideUnitCircle.normalized * _minDistanceToTarget;
+        Vector3 position = new Vector3(randomPoint.x, 0, randomPoint.y) + target.position;
+
+        if(Terrain.activeTerrain.TryGetComponent<Terrain>(out Terrain terrain))
+            position.y = terrain.SampleHeight(position);
+
+        return position;
     }
 
     public override void ExitAttack()
     {
         
-    }
-
-    /// <summary>
-    /// Aim the projectile start point at the target
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="projectileStart"></param>
-    /// <param name="rotationSpeed"></param>
-    private bool Aim(Transform target, float rotationSpeed)
-    {
-        Vector3 direction = (target.position - this.gameObject.transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-
-        rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
-        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
-
-        if (Vector3.Dot(this.gameObject.transform.forward, direction) > 0.995f)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        } 
     }
 
     /// <summary>

@@ -13,6 +13,7 @@ public class DieState : IState
     public void OnEnter()
     {
         _character.NavAgent.isStopped = true;
+        _character.Die();
     }
 
     public void OnExit()
@@ -22,6 +23,6 @@ public class DieState : IState
 
     public void Tick()
     {
-
+        
     }
 }

@@ -21,7 +21,7 @@ public class PursueState : IState
 
     public void OnExit()
     {
-        _character.NavAgent.ResetPath();
+
     }
 
     public void Tick()

@@ -35,7 +35,7 @@ public class ProjectileEnemy : EnemyBase
         #endregion
     }
 
-    protected override void Die()
+    public override void Die()
     {
         base.Die();
     }

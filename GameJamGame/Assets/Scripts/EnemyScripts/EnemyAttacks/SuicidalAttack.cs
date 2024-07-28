@@ -8,16 +8,21 @@ public class SuicidalAttack : AttackBase
     [SerializeField] float _cooldownTime;
     [SerializeField] float _ramForce;
     [SerializeField] float _recoveryThreshhold;
+    [SerializeField] float _chargeThreshhold; //Min speed this enemy has to be going to be considered charging
+    [SerializeField] float _rotationSpeed;
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField] Health _health;
+
     private bool _isRecovered = true;
     public override void DoAttack(Transform target)
     {
         base.DoAttack(target);
 
+        bool isAimed = Aim(target, _rotationSpeed);
+
+        if (!isAimed) return;
         RamIntoTarget(target, _rigidbody, _ramForce);
-
         StartCoroutine(Recover(_rigidbody));
-
         StartCoroutine(Cooldown(_cooldownTime));
     }
 
@@ -67,5 +72,13 @@ public class SuicidalAttack : AttackBase
     public override bool CanAttack()
     {
         return base.CanAttack() && IsRecovered();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            _health.RemoveHealth(1000);
+        }
     }
 }

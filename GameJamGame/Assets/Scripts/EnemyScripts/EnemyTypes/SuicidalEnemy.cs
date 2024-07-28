@@ -36,7 +36,7 @@ public class SuicidalEnemy : EnemyBase
 
     Func<bool> IsRecoveredFromAttack => () => _attack.IsRecovered();
 
-    protected override void Die()
+    public override void Die()
     {
         base.Die();
     }

@@ -52,6 +52,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(Bounds bounds, GameObject[] Enemies)
     {
         Vector3 spawnPos = GetRandPositionInBounds(bounds);
+        if (Terrain.activeTerrain.TryGetComponent<Terrain>(out Terrain terrain))
+            spawnPos.y = terrain.SampleHeight(spawnPos);
 
         int randIndex = Random.Range(0, Enemies.Length);
         GameObject randEnemy = Enemies[randIndex];
