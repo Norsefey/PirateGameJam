@@ -84,10 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2aba5c0b656414ba195200c63c8bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 15
   _cooldownTime: 3
   _ramForce: 30000
-  _recoveryThreshhold: 20
-  _chargeThreshhold: 30
+  _recoveryThreshhold: 50
+  _damageDuration: 0.5
   _rotationSpeed: 5
   _rigidbody: {fileID: 5496115365749918626}
   _health: {fileID: 9174369712824260103}
