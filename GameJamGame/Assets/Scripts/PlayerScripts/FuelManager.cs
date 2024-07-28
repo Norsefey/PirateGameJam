@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FuelManager : MonoBehaviour
@@ -39,16 +40,16 @@ public class FuelManager : MonoBehaviour
 
         Debug.Log("Fuel Replenished: " + currentFuel + "/" + PlayerStats.Instance.maxFuel);
     }
-    public bool UseFuel(float amount)
+    public void UseFuel(float amount)
     {// for abilities, returns true if consumption amount does not deplete below zero
         if(currentFuel - amount > 0)
         {
             currentFuel -= amount;
-            return true;
+            
         }
         else
         {
-            return false;
+            SceneManager.LoadScene(5);
         }
         
     }
