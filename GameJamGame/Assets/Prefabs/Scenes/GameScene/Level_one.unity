@@ -463,6 +463,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95694643d0c842d4eae20a7abe48941b, type: 3}
+--- !u!1 &308207632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 59653420526817719, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
+  m_PrefabInstance: {fileID: 549742975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338451777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2304,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3312946018990930902, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461718964962468104, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9817964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461718964962468104, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9817964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461718964962468104, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9817964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461718964962468104, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -292
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461718964962468104, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 189
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3109,6 +3138,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 549742976}
+    - target: {fileID: 5808959524378149161, guid: f998e48f52a7e8f4f9c7781415006905, type: 3}
+      propertyPath: farDistance
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228433864581783595, guid: f998e48f52a7e8f4f9c7781415006905, type: 3}
+      propertyPath: _testingTarget
+      value: 
+      objectReference: {fileID: 308207632}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
