@@ -1012,6 +1012,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name
       value: Upgrade_Banner_Top Speed
@@ -1549,6 +1553,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: increaseAmount
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name
       value: Upgrade_Banner_Efficiency
@@ -1907,6 +1919,14 @@ PrefabInstance:
     - target: {fileID: 6025993818682690293, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: increaseAmount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name

@@ -105,8 +105,13 @@ public class PlayerMovement : MonoBehaviour
             float amount = Mathf.Abs((steerInput));
             Steer(dir, amount);
         }
+        if (Input.GetKey(brakeKey))
+        {
+            topSpeed = PlayerStats.Instance.maxSpeed / 2;
+        }
+
         // Set current Speed and rotation
-        if (!isGrounded || Input.GetKey(brakeKey))
+        if (!isGrounded)
             topSpeed = 0;
         currentSpeed = Mathf.SmoothStep(currentSpeed, topSpeed, Time.deltaTime * PlayerStats.Instance.acceleration);
         topSpeed = 0f;
