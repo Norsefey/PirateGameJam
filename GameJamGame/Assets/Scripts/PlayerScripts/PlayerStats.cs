@@ -37,6 +37,7 @@ public class PlayerStats : MonoBehaviour
         carRB.drag = carDrag;
         carRB.mass = carWeight;
         defaultfuelBurnRate = fuelBurnRate;
+        upgradePoints = 0;
     }
     public void AddToUpgradeCollection(float value)
     {
