@@ -86,7 +86,7 @@ MonoBehaviour:
   _minDistanceToTarget: 10
   _projectilePrefab: {fileID: 8099588652017389463, guid: 7939c131d6368a549b064127d2674945, type: 3}
   _projectileStart: {fileID: 3728108571345272068}
-  _attackMoveSpeed: 550
+  _attackMoveSpeed: 650
 --- !u!114 &4243442510488403741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackRange: 30
-  Speed: 500
+  Speed: 600
   _speedChange: 5
   _minSpeed: 8
   _scaleChange: 0.5
@@ -137,7 +137,7 @@ NavMeshAgent:
   m_AngularSpeed: 90
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
