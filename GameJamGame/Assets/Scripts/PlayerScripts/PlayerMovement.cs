@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Values")]
     [SerializeField] private float gravity = 10f;
+    [SerializeField] private float dodgeStr = 10;
     [SerializeField] private LayerMask layerMask;
 
 
@@ -26,8 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Input Controls")]
     [SerializeField] private KeyCode accelerateKey = KeyCode.W;
-    [SerializeField] private KeyCode brakeKey = KeyCode.S;
-    
+    [SerializeField] private KeyCode brakeKey = KeyCode.Space;
+    [SerializeField] private KeyCode boostKey = KeyCode.Q;
+
     bool atFinishLine = false;
 
     private void Update()
@@ -71,17 +74,27 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1, layerMask);
         // steering Input
         float steerInput = Input.GetAxis("Horizontal");
+        // give player ability to dodge
+        if (Input.GetKeyDown(boostKey))
+        {
+            if (steerInput > 0)
+                moveSphere.AddForce(carModel.transform.right * dodgeStr, ForceMode.Impulse);
+            else if (steerInput < 0)
+            {
+                moveSphere.AddForce(-carModel.transform.right * dodgeStr, ForceMode.Impulse);
+            }
+            else
+            {
+                moveSphere.AddForce(carModel.transform.forward * dodgeStr, ForceMode.Impulse);
+
+            }
+        }
         // player moves if they have Fuel and are on the ground
         if (FuelManager.instance.HasFuel() && isGrounded)
         {
             if (Input.GetKey(accelerateKey))
             {
                 topSpeed = PlayerStats.Instance.maxSpeed;
-                FuelManager.instance.BurnFuel();
-            }
-            if (Input.GetKey(brakeKey))
-            {
-                topSpeed = -PlayerStats.Instance.maxSpeed;
                 FuelManager.instance.BurnFuel();
             }
         }
@@ -93,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             Steer(dir, amount);
         }
         // Set current Speed and rotation
-        if (!isGrounded || Input.GetKey(KeyCode.Space))
+        if (!isGrounded || Input.GetKey(brakeKey))
             topSpeed = 0;
         currentSpeed = Mathf.SmoothStep(currentSpeed, topSpeed, Time.deltaTime * PlayerStats.Instance.acceleration);
         topSpeed = 0f;
