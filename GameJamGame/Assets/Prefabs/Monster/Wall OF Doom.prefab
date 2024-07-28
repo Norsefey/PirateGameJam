@@ -128,7 +128,7 @@ MonoBehaviour:
   closeDistance: 60
   farDistance: 190
   deathDistance: 25
-  defaultMoveSpeed: 18
+  defaultMoveSpeed: 15
   slowSpeed: 12
   fastSpeed: 30
   minHeightValue: 0
