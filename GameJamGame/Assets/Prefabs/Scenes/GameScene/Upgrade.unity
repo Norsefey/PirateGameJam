@@ -290,7 +290,7 @@ RectTransform:
   m_GameObject: {fileID: 158935131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.58456, y: 0.58456, z: 0.58456}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2008963237}
@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -384, y: -4}
+  m_AnchoredPosition: {x: -221, y: -4}
   m_SizeDelta: {x: 721.2, y: 752.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158935133
@@ -627,6 +627,18 @@ PrefabInstance:
       value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.731025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.731025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.731025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -656,11 +668,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -412
+      value: -228
       objectReference: {fileID: 0}
     - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -295
+      value: -169
       objectReference: {fileID: 0}
     - target: {fileID: 6023437025974944671, guid: b38b6ef08e9930d478278b2ed74144a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -758,8 +770,8 @@ Light:
   m_Color: {r: 0.740566, g: 1, b: 0.95336974, a: 1}
   m_Intensity: 600
   m_Range: 35
-  m_SpotAngle: 45.803898
-  m_InnerSpotAngle: 3.2337646
+  m_SpotAngle: 107.35594
+  m_InnerSpotAngle: 58.963314
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -1000,6 +1012,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name
       value: Upgrade_Banner_Top Speed
@@ -1196,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 2
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1536,6 +1552,14 @@ PrefabInstance:
     - target: {fileID: 6025993818682690293, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: increaseAmount
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name
@@ -1895,6 +1919,14 @@ PrefabInstance:
     - target: {fileID: 6025993818682690293, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005218985125360522, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
+      propertyPath: increaseAmount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8894584916334126028, guid: 9af2f23cfad36134095a3b5714dec238, type: 3}
       propertyPath: m_Name

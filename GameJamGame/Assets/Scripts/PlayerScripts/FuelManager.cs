@@ -26,7 +26,9 @@ public class FuelManager : MonoBehaviour
     public void BurnFuel()
     {// for movement, consumes fuel at the fuel burn rate
         currentFuel -= PlayerStats.Instance.fuelBurnRate;
-        if(fuelSlider != null)
+        if(currentFuel <= 0)
+            SceneManager.LoadScene(5);
+        if (fuelSlider != null)
             fuelSlider.value = currentFuel;
     }
 

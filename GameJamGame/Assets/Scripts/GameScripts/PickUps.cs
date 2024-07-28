@@ -45,10 +45,12 @@ public class PickUps : MonoBehaviour
                 case PickUpType.Upgrade:
                     // increase count in upgrade counter
                     PlayerStats.Instance.AddToUpgradeCollection(upgradeAmount);
+                    Destroy(gameObject);
                     break;
                 case PickUpType.TempBonus:
                     // give player a temp Bonus
                     ActivateBonus();
+                    Destroy(gameObject);
                     break;
             }
         }

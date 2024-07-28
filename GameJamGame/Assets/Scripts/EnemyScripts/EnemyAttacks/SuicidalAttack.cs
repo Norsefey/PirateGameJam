@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class SuicidalAttack : AttackBase
 {
+    [SerializeField] float _damage;
     [SerializeField] float _cooldownTime;
     [SerializeField] float _ramForce;
     [SerializeField] float _recoveryThreshhold;
-    [SerializeField] float _chargeThreshhold; //Min speed this enemy has to be going to be considered charging
+    [SerializeField] float _damageDuration; //Amount of time after an attack this object will deal damage on contact
     [SerializeField] float _rotationSpeed;
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Health _health;
 
+    private bool _isDealingDamage = false;
     private bool _isRecovered = true;
     public override void DoAttack(Transform target)
     {
@@ -22,6 +24,7 @@ public class SuicidalAttack : AttackBase
 
         if (!isAimed) return;
         RamIntoTarget(target, _rigidbody, _ramForce);
+        StartCoroutine(IsDamaging(_damageDuration));
         StartCoroutine(Recover(_rigidbody));
         StartCoroutine(Cooldown(_cooldownTime));
     }
@@ -30,7 +33,6 @@ public class SuicidalAttack : AttackBase
     {
         // Calculate Direction
         Vector3 direction = (target.position - rb.position).normalized;
-
         rb.AddForce(direction * ramForce, ForceMode.Impulse);
     }
 
@@ -40,6 +42,13 @@ public class SuicidalAttack : AttackBase
         yield return new WaitForFixedUpdate();
         yield return new WaitUntil(() => rb.velocity.magnitude <= _recoveryThreshhold);
         _isRecovered = true;
+    }
+
+    private IEnumerator IsDamaging(float damageDuration)
+    {
+        _isDealingDamage = true;
+        yield return new WaitForSeconds(damageDuration);
+        _isDealingDamage = false;
     }
 
     public void EnableRigidbody(Rigidbody rb)
@@ -76,8 +85,9 @@ public class SuicidalAttack : AttackBase
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && _isDealingDamage)
         {
+            if (FuelManager.instance) FuelManager.instance.UseFuel(_damage);
             _health.RemoveHealth(1000);
         }
     }
