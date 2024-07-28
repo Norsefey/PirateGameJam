@@ -25,10 +25,6 @@ public class EnemySpawner : MonoBehaviour
     {
         //Components
         _boxCollider = GetComponent<BoxCollider>();
-    }
-
-    private void Start()
-    {
         _bounds = _boxCollider.bounds;
     }
 
@@ -38,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (_canSpawnEnemies)
         {
-            SpawnEnemy(_bounds, _enemies);
+            SpawnEnemy(_boxCollider.bounds, _enemies);
             float cooldownTime = GetCooldownTimer(_minSpawnDelay, _maxSpawnDelay);
             StartCoroutine(Cooldown(cooldownTime));
         }
@@ -52,15 +48,32 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(Bounds bounds, GameObject[] Enemies)
     {
         Vector3 spawnPos = GetRandPositionInBounds(bounds);
-        if (Terrain.activeTerrain.TryGetComponent<Terrain>(out Terrain terrain))
-            spawnPos.y = terrain.SampleHeight(spawnPos);
 
+        RaycastHit hit;
+        if(Physics.Raycast(bounds.center, Vector3.down, out hit))
+        {
+            if(hit.collider.GetComponent<Terrain>() != null)
+            {
+                Terrain terrain = hit.collider.GetComponent<Terrain>();
+                spawnPos.y = terrain.SampleHeight(spawnPos);
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }
+       
         int randIndex = Random.Range(0, Enemies.Length);
         GameObject randEnemy = Enemies[randIndex];
         GameObject enemyObj = Instantiate(randEnemy, spawnPos, Quaternion.identity);
 
         //Reference the player
         bool isEnemy = enemyObj.TryGetComponent<EnemyBase>(out EnemyBase enemy);
+        enemy.NavAgent.Warp(spawnPos);
 
         if (PlayerStats.Instance != null)
         {

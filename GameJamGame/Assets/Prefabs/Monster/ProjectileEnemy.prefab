@@ -83,10 +83,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cooldownTime: 1
   _rotationSpeed: 5
-  _maxDistanceToTarget: 20
+  _minDistanceToTarget: 10
   _projectilePrefab: {fileID: 8099588652017389463, guid: 7939c131d6368a549b064127d2674945, type: 3}
   _projectileStart: {fileID: 3728108571345272068}
-  _attackMoveSpeed: 30
+  _attackMoveSpeed: 550
 --- !u!114 &4243442510488403741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackRange: 30
-  Speed: 50
+  Speed: 500
   _speedChange: 5
   _minSpeed: 8
   _scaleChange: 0.5
@@ -156,7 +156,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 7168
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
