@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagsToDamage:
-  - 
+  - Player
   _lifeTime: 10
   _damage: 10
   _speed: 1000

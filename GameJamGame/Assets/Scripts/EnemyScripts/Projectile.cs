@@ -34,9 +34,12 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Deal damage and destroy self
-        if (tagsToDamage.Contains(other.gameObject.tag) && other.gameObject.TryGetComponent<Health>(out Health healthManager))
+        if (tagsToDamage.Contains(other.gameObject.tag))
         {
-            healthManager.RemoveHealth(_damage);
+            if (FuelManager.instance)
+            {
+                FuelManager.instance.UseFuel(_damage);
+            }
         }
 
         Destroy(this.gameObject);
