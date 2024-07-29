@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Prefabs/Scenes/GameScene/level_Two.unity
     guid: 533f2aed17286fd4b8d763f8f53a6ea7
   - enabled: 1
-    path: Assets/Prefabs/Scenes/GameScene/Level_Three.unity
+    path: Assets/Prefabs/Scenes/GameScene/Win Scene.unity
     guid: f5876a9aa2af6224980cff88c2d89df1
   - enabled: 1
     path: Assets/Prefabs/Scenes/GameScene/Lose Scene.unity
