@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WallOfDoom : MonoBehaviour
 {
@@ -45,7 +46,18 @@ public class WallOfDoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        measurePoint.position = new Vector3 (player.position.x, measurePoint.position.y, measurePoint.position.z);
+        if(player != null)
+            PlayerDistance();
+
+        // a visual effect to the wall's material
+        float pingPongValue = Mathf.PingPong(Time.time * parallaxSpeed, maxHeightValue - minHeightValue) + minHeightValue;
+        wallRenderer.material.SetFloat(heightMapProperty, pingPongValue);
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    }
+
+    private void PlayerDistance()
+    {
+        measurePoint.position = new Vector3(player.position.x, measurePoint.position.y, measurePoint.position.z);
         distanceToPlayer = Vector3.Distance(measurePoint.position, player.position);
         Debug.Log(distanceToPlayer);
         if (distanceToPlayer < closeDistance && wallState != WallState.close)
@@ -54,7 +66,7 @@ public class WallOfDoom : MonoBehaviour
             PlayerStats.Instance.GloomEffect();
             wallState = WallState.close;
         }
-        else if (distanceToPlayer > farDistance && wallState != WallState.far) 
+        else if (distanceToPlayer > farDistance && wallState != WallState.far)
         {
             moveSpeed = fastSpeed;
             PlayerStats.Instance.RemoveGloom();
@@ -65,14 +77,11 @@ public class WallOfDoom : MonoBehaviour
             moveSpeed = defaultMoveSpeed;
             PlayerStats.Instance.RemoveGloom();
             wallState = WallState.normal;
-        }else if(distanceToPlayer < deathDistance)
+        }
+        else if (distanceToPlayer < deathDistance)
         {
             Debug.Log("Dead");
+            SceneManager.LoadScene(5);
         }
-
-        // a visual effect to the wall's material
-        float pingPongValue = Mathf.PingPong(Time.time * parallaxSpeed, maxHeightValue - minHeightValue) + minHeightValue;
-        wallRenderer.material.SetFloat(heightMapProperty, pingPongValue);
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 }
