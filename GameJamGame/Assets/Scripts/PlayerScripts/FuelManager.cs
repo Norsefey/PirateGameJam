@@ -47,7 +47,6 @@ public class FuelManager : MonoBehaviour
         if(currentFuel - amount > 0)
         {
             currentFuel -= amount;
-            
         }
         else
         {
