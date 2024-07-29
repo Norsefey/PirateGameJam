@@ -15,10 +15,30 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638577944559484018
+  lastModified: 638577955489213824
   FileSizes:
   - Name: Desktop
-    Value: 712
+    Value: 806
+  Exists: 1
+--- !u!114 &-4474273506789025131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638577955490293248
+  FileSizes:
+  - Name: Desktop
+    Value: 42784
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -35,13 +55,15 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -6774767421774469537}
   - {fileID: 4623247199528844968}
-  EditorEvents: []
+  - {fileID: -4474273506789025131}
+  EditorEvents:
+  - {fileID: 8181701523795848502}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4623247199528844968}
   StringsBanks:
   - {fileID: -6774767421774469537}
-  cacheTime: 638577944559484018
+  cacheTime: 638577955490293248
   cacheVersion: 131618
 --- !u!114 &4623247199528844968
 MonoBehaviour:
@@ -58,8 +80,35 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638577944559463883
+  lastModified: 638577955489203833
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &8181701523795848502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Engine_Idle
+  m_EditorClassIdentifier: 
+  Path: event:/Engine_Idle
+  Guid:
+    Data1: -2008374431
+    Data2: 1165874213
+    Data3: -107249520
+    Data4: -1414935358
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5040
