@@ -146,6 +146,7 @@ MonoBehaviour:
   frontWheels: {fileID: 9020251177546671286}
   backWheels: {fileID: 7434806305347771819}
   accelerateKey: 119
+  reverseKey: 115
   brakeKey: 304
   boostKey: 32
 --- !u!114 &3851528721693707266
@@ -413,10 +414,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5622113266083875336}
   - component: {fileID: 1835083951640241050}
-  - component: {fileID: 9114571390978380590}
   - component: {fileID: 3629761001989058564}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: RearCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,14 +488,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &9114571390978380590
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467813500413925019}
-  m_Enabled: 1
 --- !u!114 &3629761001989058564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,6 +2357,7 @@ MonoBehaviour:
   followSpeed: 0.16
   offSet: {x: 0, y: 0, z: -32.6}
   y_Offset: 10
+  rearCam: {fileID: 1835083951640241050}
 --- !u!114 &2980763143203337897
 MonoBehaviour:
   m_ObjectHideFlags: 0

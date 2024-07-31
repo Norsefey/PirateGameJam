@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  replenishAmount: 10
+  replenishAmount: 20
   upgradeAmount: 0
   bonusType: 0
   bonusTime: 0

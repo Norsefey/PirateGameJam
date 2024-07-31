@@ -905,7 +905,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 467813500413925019, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 688509913611285462, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -947,6 +947,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1835083951640241050, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2755500922921711169, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -955,7 +959,8 @@ PrefabInstance:
       propertyPath: fuelSlider
       value: 
       objectReference: {fileID: 1977891387}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9114571390978380590, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

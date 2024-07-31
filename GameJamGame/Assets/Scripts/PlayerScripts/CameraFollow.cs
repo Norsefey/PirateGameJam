@@ -15,6 +15,8 @@ public class CameraFollow : MonoBehaviour
     private float zTemp = 0;
     public float y_Offset;
 
+    [SerializeField] Camera rearCam;
+    bool rearViewEnabled = false;
     private void Start()
     {
         //y_Offset = transform.position.y;
@@ -23,6 +25,13 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            rearCam.enabled = !rearViewEnabled;
+            rearViewEnabled = !rearViewEnabled;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             rotation = transform.rotation.eulerAngles;
