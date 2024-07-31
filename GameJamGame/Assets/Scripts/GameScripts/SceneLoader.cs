@@ -7,7 +7,18 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadAScene(int index)
     {
-        SceneManager.LoadScene(index);
+            SceneManager.LoadScene(index);
+    }
+
+    public void TryAgain()
+    {
+        if (PlayerStats.Instance != null)
+        {
+            if (PlayerStats.Instance.levelOneCompleted)
+                SceneManager.LoadScene(2);
+            else
+                SceneManager.LoadScene(1);
+        }
     }
 
 }

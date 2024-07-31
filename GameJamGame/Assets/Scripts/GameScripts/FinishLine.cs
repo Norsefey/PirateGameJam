@@ -22,6 +22,9 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Player") && !transitionStarted)
         {
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level_One"))
+                PlayerStats.Instance.LevelOneCompleted();
+
             StartCoroutine(ChangeScene());
         }
     }

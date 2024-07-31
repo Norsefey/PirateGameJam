@@ -62,6 +62,9 @@ public class FuelManager : MonoBehaviour
 
     private void LoseGame()
     {
-        SceneManager.LoadScene(4);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level_one"))
+            SceneManager.LoadScene(4);
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("level_Two"))
+            SceneManager.LoadScene(6);
     }
 }

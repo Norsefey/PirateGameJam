@@ -69,12 +69,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9eaeb417a82f884dbeb62fe1c17a4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   replenishAmount: 0
   upgradeAmount: 10
-  bonusType: 0
-  bonusTime: 0
-  bonusValue: 0
+  bonusType: 2
+  bonusTime: 4
+  bonusValue: 0.02
 --- !u!114 &7700696138474393155
 MonoBehaviour:
   m_ObjectHideFlags: 0

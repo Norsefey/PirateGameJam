@@ -74,7 +74,7 @@ MonoBehaviour:
   upgradeAmount: 0
   bonusType: 1
   bonusTime: 4
-  bonusValue: 120
+  bonusValue: 200
 --- !u!114 &7972505647483471091
 MonoBehaviour:
   m_ObjectHideFlags: 0

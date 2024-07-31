@@ -125,11 +125,11 @@ MonoBehaviour:
   player: {fileID: 0}
   measurePoint: {fileID: 5969130537212798669}
   closeDistance: 60
-  farDistance: 190
-  deathDistance: 25
+  farDistance: 120
+  deathDistance: 40
   defaultMoveSpeed: 15
-  slowSpeed: 12
-  fastSpeed: 30
+  slowSpeed: 10
+  fastSpeed: 35
   minHeightValue: 0
   maxHeightValue: 0.5
   parallaxSpeed: 0.05
@@ -177,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 8470329611985246134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.158, z: 0.503}
+  m_LocalPosition: {x: 0, y: -0.0114, z: 0.503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -202,11 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1041159925323584895, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.158
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1041159925323584895, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.503
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1041159925323584895, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_LocalRotation.w
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2747577077460598877, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: _minSpawnDelay
-      value: 3
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 2747577077460598877, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: _spawnDelayModifyRate
@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703555192534674885, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_Size.y
-      value: 0.19625035
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 6703555192534674885, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_Size.z
@@ -266,15 +266,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703555192534674885, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_Center.x
-      value: 0.14999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703555192534674885, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_Center.y
-      value: 0.019512719
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703555192534674885, guid: 31aa8ff498079754cbbf0b1f4fb5f002, type: 3}
       propertyPath: m_Center.z
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

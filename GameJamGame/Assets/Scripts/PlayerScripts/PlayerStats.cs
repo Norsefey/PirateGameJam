@@ -27,10 +27,13 @@ public class PlayerStats : MonoBehaviour
     [Space(5), Header("Upgrade Points")]
     public float upgradePoints = 0;
     private float collectionRate = 1;
+
+   public bool levelOneCompleted = false;
     private void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        if(Instance == null)
+            Instance = this;
+        //DontDestroyOnLoad(this.gameObject);
 
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -38,6 +41,10 @@ public class PlayerStats : MonoBehaviour
         carRB.mass = carWeight;
         defaultfuelBurnRate = fuelBurnRate;
         upgradePoints = 0;
+    }
+    public void LevelOneCompleted()
+    {
+        levelOneCompleted = true;
     }
     public void AddToUpgradeCollection(float value)
     {
