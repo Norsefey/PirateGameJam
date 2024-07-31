@@ -81,7 +81,7 @@ public class WallOfDoom : MonoBehaviour
         else if (distanceToPlayer < deathDistance)
         {
             Debug.Log("Dead");
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(4);
         }
     }
 }
