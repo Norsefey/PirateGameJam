@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PursueState : IState
@@ -27,5 +28,6 @@ public class PursueState : IState
     public void Tick()
     {
         _character.NavAgent.SetDestination(_character.Target.transform.position);
+
     }
 }

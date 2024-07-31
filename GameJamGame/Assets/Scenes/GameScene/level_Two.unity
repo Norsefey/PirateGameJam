@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 3851528721693707266, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
       propertyPath: fuelSlider
       value: 
-      objectReference: {fileID: 712520379}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -601,22 +601,82 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9042563010097723613, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042563010097723613, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
---- !u!114 &712520379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4079220694027742843, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
-  m_PrefabInstance: {fileID: 712520378}
+--- !u!1 &1011065133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011065135}
+  - component: {fileID: 1011065134}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1011065134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011065133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -601746397
+      Data2: 1251613415
+      Data3: 184361385
+      Data4: 950699363
+    Path: event:/LevelTwo_BM
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1011065135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011065133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9720306, y: 5.0167675, z: 7.4998097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316599654
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 2549202085925420020, guid: 4506e90563b74074abc996cd8a526616, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095226037574192628, guid: 4506e90563b74074abc996cd8a526616, type: 3}
+      propertyPath: sceneIndex
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1124,3 +1188,4 @@ SceneRoots:
   - {fileID: 6929824530330737193}
   - {fileID: 1387405461}
   - {fileID: 1859532801}
+  - {fileID: 1011065135}

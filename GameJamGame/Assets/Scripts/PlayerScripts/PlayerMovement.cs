@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Values")]
     [SerializeField] private float gravity = 10f;
     [SerializeField] private float dodgeStr = 10;
+    [SerializeField] private float boostCost = 5;
     [SerializeField] private LayerMask layerMask;
 
 
@@ -28,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Input Controls")]
     [SerializeField] private KeyCode accelerateKey = KeyCode.W;
-    [SerializeField] private KeyCode brakeKey = KeyCode.Space;
-    [SerializeField] private KeyCode boostKey = KeyCode.Q;
+    [SerializeField] private KeyCode brakeKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode boostKey = KeyCode.Space;
 
     bool atFinishLine = false;
 
@@ -88,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
                 moveSphere.AddForce(carModel.transform.forward * dodgeStr, ForceMode.Impulse);
 
             }
+
+            FuelManager.instance.DecreaseFuel(boostCost);
         }
         // player moves if they have Fuel and are on the ground
         if (FuelManager.instance.HasFuel() && isGrounded)

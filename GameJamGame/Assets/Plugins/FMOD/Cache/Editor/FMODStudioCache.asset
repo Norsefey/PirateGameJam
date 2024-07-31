@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7835963132139977809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UpgradePickUp_SFX
+  m_EditorClassIdentifier: 
+  Path: event:/UpgradePickUp_SFX
+  Guid:
+    Data1: 1784102207
+    Data2: 1103847330
+    Data3: -80664153
+    Data4: -47108430
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2592
 --- !u!114 &-6774767421774469537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,11 +42,65 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638577955489213824
+  lastModified: 638579699478472904
   FileSizes:
   - Name: Desktop
-    Value: 806
+    Value: 1274
   Exists: 1
+--- !u!114 &-5888082974330066004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LevelTwo_BM
+  m_EditorClassIdentifier: 
+  Path: event:/LevelTwo_BM
+  Guid:
+    Data1: -601746397
+    Data2: 1251613415
+    Data3: 184361385
+    Data4: 950699363
+  Banks:
+  - {fileID: 8368966206006829394}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 266800
+--- !u!114 &-5641815725241464921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FuelPickUP_SFX
+  m_EditorClassIdentifier: 
+  Path: event:/FuelPickUP_SFX
+  Guid:
+    Data1: -398177318
+    Data2: 1226333162
+    Data3: 1898834063
+    Data4: 301582778
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3500
 --- !u!114 &-4474273506789025131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,11 +116,65 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638577955490293248
+  lastModified: 638579699479164870
   FileSizes:
   - Name: Desktop
-    Value: 42784
+    Value: 1007936
   Exists: 1
+--- !u!114 &-3277963989359159758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WinScreen_BM
+  m_EditorClassIdentifier: 
+  Path: event:/WinScreen_BM
+  Guid:
+    Data1: 534098235
+    Data2: 1237781278
+    Data3: -2089626694
+    Data4: 810925923
+  Banks:
+  - {fileID: 8368966206006829394}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 169000
+--- !u!114 &-2808823927362793413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BuffPickUP_SFX
+  m_EditorClassIdentifier: 
+  Path: event:/BuffPickUP_SFX
+  Guid:
+    Data1: -1309700331
+    Data2: 1180247908
+    Data3: -501407816
+    Data4: -12909513
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2520
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,15 +191,79 @@ MonoBehaviour:
   - {fileID: -6774767421774469537}
   - {fileID: 4623247199528844968}
   - {fileID: -4474273506789025131}
+  - {fileID: 8368966206006829394}
   EditorEvents:
   - {fileID: 8181701523795848502}
+  - {fileID: 1093772847574726591}
+  - {fileID: -3277963989359159758}
+  - {fileID: 7724780617351259600}
+  - {fileID: 1377284867957875725}
+  - {fileID: -5888082974330066004}
+  - {fileID: -5641815725241464921}
+  - {fileID: -2808823927362793413}
+  - {fileID: -7835963132139977809}
+  - {fileID: 7311200789698369599}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4623247199528844968}
   StringsBanks:
   - {fileID: -6774767421774469537}
-  cacheTime: 638577955490293248
+  cacheTime: 638579699479164870
   cacheVersion: 131618
+--- !u!114 &1093772847574726591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Engine_Running
+  m_EditorClassIdentifier: 
+  Path: event:/Engine_Running
+  Guid:
+    Data1: 332353833
+    Data2: 1154921646
+    Data3: -1081747292
+    Data4: 2104603986
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1377284867957875725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LoseScene_BM
+  m_EditorClassIdentifier: 
+  Path: event:/LoseScene_BM
+  Guid:
+    Data1: -643714864
+    Data2: 1320263519
+    Data3: 1284582801
+    Data4: 1353099150
+  Banks:
+  - {fileID: 8368966206006829394}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 114200
 --- !u!114 &4623247199528844968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,11 +279,65 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638577955489203833
+  lastModified: 638579699478467871
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &7311200789698369599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Monster
+  m_EditorClassIdentifier: 
+  Path: event:/Monster
+  Guid:
+    Data1: -1001238242
+    Data2: 1233715668
+    Data3: -485100366
+    Data4: 1978658213
+  Banks:
+  - {fileID: -4474273506789025131}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2050
+--- !u!114 &7724780617351259600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LevelOne_BM
+  m_EditorClassIdentifier: 
+  Path: event:/LevelOne_BM
+  Guid:
+    Data1: 662541004
+    Data2: 1187485829
+    Data3: -463697261
+    Data4: 992164345
+  Banks:
+  - {fileID: 8368966206006829394}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 267500
 --- !u!114 &8181701523795848502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,8 +360,28 @@ MonoBehaviour:
   - {fileID: -4474273506789025131}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 5040
+  Length: 0
+--- !u!114 &8368966206006829394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Background.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Background.bank
+  Name: Background
+  StudioPath: bank:/Background
+  lastModified: 638579670371643537
+  FileSizes:
+  - Name: Desktop
+    Value: 11720832
+  Exists: 1

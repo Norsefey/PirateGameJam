@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         {
             if (FuelManager.instance)
             {
-                FuelManager.instance.UseFuel(_damage);
+                FuelManager.instance.DecreaseFuel(_damage);
             }
         }
 

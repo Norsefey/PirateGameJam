@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/Start Screen.unity
     guid: 3cef2960dd9e05949bef20b3cec6a902
   - enabled: 1
-    path: Assets/Scenes/GameScene/Upgrade.unity
-    guid: 8aeed6697a80d7e44bc4886cc279d22f
-  - enabled: 1
     path: Assets/Scenes/GameScene/Level_one.unity
     guid: 4c2660a81bab24945af7030ca4520e09
   - enabled: 1

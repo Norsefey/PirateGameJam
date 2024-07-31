@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    public int sceneIndex = 2;
+
     bool transitionStarted = false;
     IEnumerator ChangeScene()
     {
@@ -13,7 +15,7 @@ public class FinishLine : MonoBehaviour
         PlayerStats.Instance.ReachedFinishLine();
         yield return new WaitForSeconds(3);
         // load the upgrade Scene
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     private void OnTriggerEnter(Collider other)

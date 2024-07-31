@@ -26,8 +26,8 @@ public class FuelManager : MonoBehaviour
     public void BurnFuel()
     {// for movement, consumes fuel at the fuel burn rate
         currentFuel -= PlayerStats.Instance.fuelBurnRate;
-        if(currentFuel <= 0)
-            SceneManager.LoadScene(5);
+        if (currentFuel <= 0)
+            LoseGame();
         if (fuelSlider != null)
             fuelSlider.value = currentFuel;
     }
@@ -42,7 +42,7 @@ public class FuelManager : MonoBehaviour
 
         Debug.Log("Fuel Replenished: " + currentFuel + "/" + PlayerStats.Instance.maxFuel);
     }
-    public void UseFuel(float amount)
+    public void DecreaseFuel(float amount)
     {// for abilities, returns true if consumption amount does not deplete below zero
         if(currentFuel - amount > 0)
         {
@@ -50,12 +50,18 @@ public class FuelManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(5);
+            LoseGame();
         }
         
     }
     public bool HasFuel()
     {// check if we have fuel, used by movement 
         return currentFuel > 0;
+    }
+
+
+    private void LoseGame()
+    {
+        SceneManager.LoadScene(4);
     }
 }

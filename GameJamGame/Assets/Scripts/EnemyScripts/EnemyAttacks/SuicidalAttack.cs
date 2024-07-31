@@ -87,7 +87,7 @@ public class SuicidalAttack : AttackBase
     {
         if (collision.gameObject.tag == "Player" && _isDealingDamage)
         {
-            if (FuelManager.instance) FuelManager.instance.UseFuel(_damage);
+            if (FuelManager.instance) FuelManager.instance.DecreaseFuel(_damage);
             _health.RemoveHealth(1000);
         }
     }
