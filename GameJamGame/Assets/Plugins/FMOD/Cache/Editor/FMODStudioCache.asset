@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638579699478472904
+  lastModified: 638579778407310231
   FileSizes:
   - Name: Desktop
-    Value: 1274
+    Value: 1320
   Exists: 1
 --- !u!114 &-5888082974330066004
 MonoBehaviour:
@@ -116,10 +116,10 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638579699479164870
+  lastModified: 638579778407734615
   FileSizes:
   - Name: Desktop
-    Value: 1007936
+    Value: 1007360
   Exists: 1
 --- !u!114 &-3277963989359159758
 MonoBehaviour:
@@ -203,12 +203,13 @@ MonoBehaviour:
   - {fileID: -2808823927362793413}
   - {fileID: -7835963132139977809}
   - {fileID: 7311200789698369599}
+  - {fileID: 6363353653443658630}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4623247199528844968}
   StringsBanks:
   - {fileID: -6774767421774469537}
-  cacheTime: 638579699479164870
+  cacheTime: 638579778424521009
   cacheVersion: 131618
 --- !u!114 &1093772847574726591
 MonoBehaviour:
@@ -279,11 +280,38 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638579699478467871
+  lastModified: 638579778407295192
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &6363353653443658630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TrueLevelOne_BM
+  m_EditorClassIdentifier: 
+  Path: event:/TrueLevelOne_BM
+  Guid:
+    Data1: 1855649828
+    Data2: 1139999802
+    Data3: -1180789346
+    Data4: -1520687960
+  Banks:
+  - {fileID: 8368966206006829394}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 86047
 --- !u!114 &7311200789698369599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,8 +408,8 @@ MonoBehaviour:
   Path: C:/Users/blaze/Documents/FMOD Studio/EtherDrive/Build/Desktop/Background.bank
   Name: Background
   StudioPath: bank:/Background
-  lastModified: 638579670371643537
+  lastModified: 638579778424521009
   FileSizes:
   - Name: Desktop
-    Value: 11720832
+    Value: 12825344
   Exists: 1

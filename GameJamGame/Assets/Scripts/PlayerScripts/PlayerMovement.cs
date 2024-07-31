@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Input Controls")]
     [SerializeField] private KeyCode accelerateKey = KeyCode.W;
+    [SerializeField] private KeyCode reverseKey = KeyCode.S;
     [SerializeField] private KeyCode brakeKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode boostKey = KeyCode.Space;
 
@@ -100,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
                 topSpeed = PlayerStats.Instance.maxSpeed;
                 FuelManager.instance.BurnFuel();
             }
+            else if (Input.GetKey(reverseKey))
+            {
+                topSpeed = -PlayerStats.Instance.maxSpeed;
+                FuelManager.instance.BurnFuel();
+            }
         }
         //Steer
         if (steerInput != 0 && Mathf.Abs(currentSpeed) > 2)
@@ -110,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(brakeKey))
         {
-            topSpeed = PlayerStats.Instance.maxSpeed / 2;
+            topSpeed = 0;
         }
 
         // Set current Speed and rotation
