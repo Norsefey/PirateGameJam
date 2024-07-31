@@ -951,10 +951,6 @@ PrefabInstance:
       propertyPath: fuelSlider
       value: 
       objectReference: {fileID: 1977891387}
-    - target: {fileID: 8005158564939187184, guid: fb496bc6a4cbbc4468fbc375a1aeac8e, type: 3}
-      propertyPath: brakeKey
-      value: 304
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2441,10 +2437,6 @@ PrefabInstance:
     - target: {fileID: 484343556048667561, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 3035896274303407499, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9042563010097723613, guid: 39f6d9d6b15b796459d61dee3c78305f, type: 3}
       propertyPath: m_AnchorMax.x

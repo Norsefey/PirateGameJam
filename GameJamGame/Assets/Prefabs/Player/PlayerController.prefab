@@ -138,6 +138,7 @@ MonoBehaviour:
   carNormal: {fileID: 6672630594772176251}
   gravity: 35
   dodgeStr: 9000
+  boostCost: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 115
@@ -145,7 +146,7 @@ MonoBehaviour:
   frontWheels: {fileID: 9020251177546671286}
   backWheels: {fileID: 7434806305347771819}
   accelerateKey: 119
-  brakeKey: 113
+  brakeKey: 304
   boostKey: 32
 --- !u!114 &3851528721693707266
 MonoBehaviour:
@@ -463,8 +464,8 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.64
-    y: 0.05
+    x: 0.65
+    y: 0.02
     width: 0.34
     height: 0.24
   near clip plane: 0.3
